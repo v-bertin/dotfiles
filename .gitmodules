@@ -1,0 +1,4 @@
+[submodule "nvim/.config/nvim"]
+	path = nvim/.config/nvim
+	url = git@github.com:v-bertin/kickstart.nvim.git
+	branch = master
