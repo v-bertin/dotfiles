@@ -1,0 +1,24 @@
+[user]
+	email = vbertin@witekio.com
+	name = Victor Bertin
+[core]
+	editor = nvim
+
+# From https://stackoverflow.com/questions/34119866/setting-up-and-using-meld-as-your-git-difftool-and-mergetool
+[diff]
+	tool = meld
+[difftool]
+	prompt = false
+[difftool "meld"]
+	cmd = meld "$LOCAL" "$REMOTE"
+[merge]
+	tool = meld
+[mergetool "meld"]
+	cmd = meld "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED"
+
+[alias]
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	content = "!git diff \"$1\"~ \"$1\" #"
+
+[credential]
+	helper = store
