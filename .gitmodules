@@ -2,3 +2,7 @@
 	path = nvim/.config/nvim
 	url = git@github.com:v-bertin/kickstart.nvim.git
 	branch = master
+[submodule "rmtrash/.local/bin"]
+	path = rmtrash/.local/bin
+	url = git@github.com:PhrozenByte/rmtrash.git
+	branch = v1.15
