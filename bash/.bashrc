@@ -118,3 +118,7 @@ fi
 
 export PATH="$PATH:/home/vbertin/.local/simplecore-flutter-sdk/bin"
 . "$HOME/.cargo/env"
+
+# Tell ranger to use nvim as the default editor
+export VISUAL=nvim
+export EDITOR=nvim
