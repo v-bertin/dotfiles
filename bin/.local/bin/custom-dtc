@@ -1,0 +1,21 @@
+#! /usr/bin/bash
+
+if [[ "$1" == "help" ]]; then
+   echo "./custom-dtc input.dts"
+   exit 0
+fi
+
+source=$1
+extension=${source##*.}
+
+if [[ "${extension}" != "dts" ]]; then
+   echo "Invalid extension ${extension}"
+   exit 1
+fi
+
+name=${source%.*}
+tmp=${name}.preprocessed.dts
+blob=${name}.dtb
+
+cpp -nostdinc -I ~/linux-arm64/include/ -undef -x assembler-with-cpp "${source}" "${tmp}"
+dtc -I dts -O dtb -o "${blob}" "${tmp}"

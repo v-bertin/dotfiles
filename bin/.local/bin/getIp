@@ -1,0 +1,41 @@
+#! /bin/bash
+
+# Activate "debug mode"
+# set -x
+
+# MODIFY WITH YOUR OWN VALUES
+
+USB_NETWORK_INTERFACE="enp0s31f6"
+ETH_NETWORK_INTERFACE="enx00be434dea55"
+
+# DO NOT MODIFY
+
+MAC_ADDR=$1
+MAC_ADDR=${MAC_ADDR:="00:00:00:00:00:00"}
+
+NETWORK_INTERFACE=${ETH_NETWORK_INTERFACE}
+if [[ "$(ifconfig)" =~ ${USB_NETWORK_INTERFACE} ]]; then
+    NETWORK_INTERFACE=${USB_NETWORK_INTERFACE}
+fi
+
+MY_IP_ADDR=$( \
+    ifconfig ${NETWORK_INTERFACE} | \
+    grep -oE '[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+' | \
+    awk -F "." '$NF != 0 && $NF != 255' | \
+    cut --complement -d "." -f4 \
+)
+NETWORK_BASE_ADDR="${MY_IP_ADDR}.0"
+
+get_ip_addr()
+{
+	arp -an | grep -i ${MAC_ADDR} | grep -oE '[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+'
+}
+
+TARGET_IP_ADDR=$(get_ip_addr)
+
+if [ -z "$TARGET_IP_ADDR" ]; then
+    nmap -sn "${NETWORK_BASE_ADDR}/24" > /dev/null
+    get_ip_addr
+else
+    echo "$TARGET_IP_ADDR"
+fi
