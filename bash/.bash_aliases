@@ -1,13 +1,22 @@
 alias rm='rmtrash'
 alias rmdir='rmdirtrash'
 alias sudo='sudo '
-alias pwd='pwd | tee >(tr -d '\n' | xclip -sel clip)'
+alias pwd='pwd | tee >(tr -d "\n" | xclip -sel clip)'
 
 force-rm() {
-	echo "Are you sure you want to delete ${@} (Y/n) ?"
-	read answer
+	echo "Are you sure you want to delete $* (Y/n) ?"
+	read -r answer
 	case ${answer:0:1} in
-		Y )	/usr/bin/rm -rf ${@};;
+		Y )	/usr/bin/rm -rf "${@}";;
 		* )	;;
 	esac
+}
+
+addpath() {
+	if ! [ -d "$1" ]; then
+		echo "Given invalid directory"
+		return
+	fi
+
+	export PATH="$PATH:$1"
 }
