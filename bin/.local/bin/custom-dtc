@@ -18,4 +18,4 @@ tmp=${name}.preprocessed.dts
 blob=${name}.dtb
 
 cpp -nostdinc -I ~/linux-arm64/include/ -undef -x assembler-with-cpp "${source}" "${tmp}"
-dtc -I dts -O dtb -o "${blob}" "${tmp}"
+dtc -@ -I dts -O dtb -o "${blob}" "${tmp}"
