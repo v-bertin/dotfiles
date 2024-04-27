@@ -2,6 +2,8 @@ alias rm='rmtrash'
 alias rmdir='rmdirtrash'
 alias sudo='sudo '
 alias pwd='pwd | tee >(tr -d "\n" | xclip -sel clip)'
+alias fd='fdfind'
+alias bat='batcat'
 
 force-rm() {
 	echo "Are you sure you want to delete $* (Y/n) ?"
