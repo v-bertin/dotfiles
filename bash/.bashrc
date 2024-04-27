@@ -116,7 +116,7 @@ if ! shopt -oq posix; then
   fi
 fi
 
-export PATH="$PATH:/home/vbertin/.local/simplecore-flutter-sdk/bin"
+export PATH="$PATH:~/.local/bin/"
 . "$HOME/.cargo/env"
 
 # Tell ranger to use nvim as the default editor
