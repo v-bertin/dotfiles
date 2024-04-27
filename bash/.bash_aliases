@@ -4,6 +4,7 @@ alias sudo='sudo '
 alias pwd='pwd | tee >(tr -d "\n" | xclip -sel clip)'
 alias fd='fdfind'
 alias bat='batcat'
+alias diff='diff -u'
 
 force-rm() {
 	echo "Are you sure you want to delete $* (Y/n) ?"
