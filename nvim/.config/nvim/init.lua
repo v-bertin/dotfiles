@@ -1,5 +1,9 @@
+-- Plugin manager
 require("config.lazy")
+
+-- Plugin related configs
 require("config.telescope")
+require("config.gitsigns")
 require("config.keymaps")
 
 -- Neovim related configs
