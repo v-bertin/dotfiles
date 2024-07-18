@@ -109,3 +109,10 @@ export EDITOR=nvim
 
 # Set bash in vim mode
 set -o vi
+
+# fnm
+FNM_PATH="/home/victor/.local/share/fnm"
+if [ -d "$FNM_PATH" ]; then
+  export PATH="$FNM_PATH:$PATH"
+  eval "$(fnm env)"
+fi
