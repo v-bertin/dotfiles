@@ -106,3 +106,6 @@ export PATH="$PATH:~/.local/bin/"
 # Tell ranger to use nvim as the default editor
 export VISUAL=nvim
 export EDITOR=nvim
+
+# Set bash in vim mode
+set -o vi
