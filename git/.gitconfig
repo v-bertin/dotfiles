@@ -19,6 +19,7 @@
 [alias]
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 	content = "!git diff \"$1\"~ \"$1\" #"
+	follow = log --follow
 
 [credential]
 	helper = store
