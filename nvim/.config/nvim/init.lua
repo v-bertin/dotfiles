@@ -4,6 +4,7 @@ require("config.lazy")
 -- Plugin related configs
 require("config.telescope")
 require("config.gitsigns")
+require("config.mason")
 require("config.keymaps")
 
 -- Neovim related configs
