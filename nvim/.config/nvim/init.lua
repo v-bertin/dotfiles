@@ -1,6 +1,9 @@
 -- Plugin manager
 require("config.lazy")
 
+-- Mason settings
+LSPs = { "lua_ls", "clangd", "neocmake", "rust_analyzer", "bashls" }
+
 -- Plugin related configs
 require("config.telescope")
 require("config.gitsigns")

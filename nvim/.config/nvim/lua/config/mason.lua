@@ -1,5 +1,3 @@
-local servers = { "lua_ls", "clangd", "neocmake", "rust_analyzer" }
-
 require("mason").setup()
 
 local on_attach = function(_, bufnr)
@@ -42,7 +40,7 @@ end
 local mason_lspconfig = require 'mason-lspconfig'
 
 mason_lspconfig.setup {
-	ensure_installed = servers,
+	ensure_installed = LSPs,
 }
 
 -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
@@ -54,8 +52,8 @@ mason_lspconfig.setup_handlers {
     require('lspconfig')[server_name].setup {
       capabilities = capabilities,
       on_attach = on_attach,
-      settings = servers[server_name],
-      filetypes = (servers[server_name] or {}).filetypes,
+      settings = LSPs[server_name],
+      filetypes = (LSPs[server_name] or {}).filetypes,
     }
   end,
 }

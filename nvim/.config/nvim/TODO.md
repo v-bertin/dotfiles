@@ -17,9 +17,10 @@
 
 ## Code : C, C++, Rust, Python, Bash
 
-- [ ] Autocomplete
-- [ ] Jump to definition and then back to previous file
-- [ ] Documentation about function prototype and usage when typing its name
+- [x] Autocomplete
+- [x] Jump to definition
+- [ ] Jump back to previous file
+- [x] Documentation about function prototype and usage when typing its name
 - [ ] Project wide rename
 - [ ] View and jump to code issue via quickfix list
 - [ ] Project wide replace tabs by spaces and vice versa
