@@ -32,6 +32,10 @@ alias diff='diff -u --color'
 # Rust
 alias x='cargo xtask'
 
+# Explore archives
+alias treezip='unzip -l'
+alias treetar='tar jtvf'
+
 # Others
 addpath() {
 	if ! [ -d "$1" ]; then
