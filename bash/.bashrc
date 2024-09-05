@@ -116,3 +116,9 @@ if [ -d "$FNM_PATH" ]; then
   export PATH="$FNM_PATH:$PATH"
   eval "$(fnm env)"
 fi
+
+# go
+GO_PATH="/home/victor/go/bin/"
+if [ -d "$GO_PATH" ]; then
+    export PATH="$GO_PATH:$PATH"
+fi
