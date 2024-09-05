@@ -29,6 +29,9 @@ alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 alias diff='diff -u --color'
 
+# Rust
+alias x='cargo xtask'
+
 # Others
 addpath() {
 	if ! [ -d "$1" ]; then
