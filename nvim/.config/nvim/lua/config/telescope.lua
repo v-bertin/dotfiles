@@ -1,7 +1,10 @@
+local telescope = require("telescope")
+
+local builtin = require('telescope.builtin')
 local actions = require("telescope.actions")
 local fb_actions = require("telescope._extensions.file_browser.actions")
 
-require("telescope").setup {
+telescope.setup {
     extensions = {
         file_browser = {
             theme = "ivy",
@@ -25,4 +28,17 @@ require("telescope").setup {
     },
 }
 
-require("telescope").load_extension "file_browser"
+telescope.load_extension("file_browser")
+
+vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = 'Open buffer list' })
+vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = 'Find a file' })
+vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = 'Look for a regular expression in the current directory' })
+vim.keymap.set('n', '<space>f', function()
+    -- Get path to the file in the current buffer
+    local current_buffer_path = vim.api.nvim_buf_get_name(0)
+    -- Remove file name from file path
+    local folder_path = vim.fn.fnamemodify(current_buffer_path, ':p:h')
+    telescope.extensions.file_browser.file_browser({
+        cwd = folder_path,
+    })
+end, { desc = 'Open the file browser' })
