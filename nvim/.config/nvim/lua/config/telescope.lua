@@ -42,3 +42,5 @@ vim.keymap.set('n', '<space>f', function()
         cwd = folder_path,
     })
 end, { desc = 'Open the file browser' })
+vim.keymap.set('n', '<leader>man', builtin.man_pages, { desc = 'Search what a command line tool does' })
+vim.keymap.set('n', '??', builtin.keymaps, { desc = 'Check available shortcuts' })
