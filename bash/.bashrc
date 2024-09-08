@@ -114,7 +114,7 @@ set -o vi
 FNM_PATH="/home/victor/.local/share/fnm"
 if [ -d "$FNM_PATH" ]; then
   export PATH="$FNM_PATH:$PATH"
-  eval "$(fnm env)"
+  eval "$(fnm env --use-on-cd --shell bash)"
 fi
 
 # go
