@@ -40,7 +40,7 @@ end
 local mason_lspconfig = require 'mason-lspconfig'
 
 mason_lspconfig.setup {
-	ensure_installed = LSPs,
+    ensure_installed = LSPs,
 }
 
 -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
