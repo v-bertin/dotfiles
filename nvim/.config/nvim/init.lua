@@ -14,9 +14,9 @@ LSPs = {
 
 -- Plugin related configs
 require("config.telescope")
-require("config.gitsigns")
+require("config.git")
 require("config.mason")
-require("config.nvim-cmp")
+require("config.autocomplete")
 require("config.keymaps")
 
 -- Neovim related configs
