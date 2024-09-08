@@ -18,6 +18,7 @@ require("config.git")
 require("config.mason")
 require("config.autocomplete")
 require("config.keymaps")
+require("config.notes")
 
 -- Neovim related configs
 
