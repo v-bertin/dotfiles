@@ -2,3 +2,6 @@
 	path = rmtrash/.local/bin
 	url = git@github.com:PhrozenByte/rmtrash.git
 	branch = v1.15
+[submodule "fonts/.local/share"]
+	path = fonts/.local/share
+	url = https://github.com/0xType/0xProto

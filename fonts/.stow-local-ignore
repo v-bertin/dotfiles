@@ -1,0 +1,10 @@
+\.git
+\.gitignore
+
+CHANGELOG.md
+images
+LICENSE
+Makefile
+README.md
+requirements.txt
+sources

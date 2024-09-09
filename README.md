@@ -30,6 +30,7 @@ $ mv ~/.bashrc ~/.bashrc.bak
 $ mv ~/.gitignore ~/.gitignore.bak
 
 $ stow bash bin git nvim ranger rmtrash
+$ fc-cache ~/.local/share/fonts/
 ```
 
 ## Uninstall
