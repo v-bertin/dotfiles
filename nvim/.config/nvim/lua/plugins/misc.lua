@@ -6,4 +6,6 @@ return {
         'numToStr/Comment.nvim',
         opts = {}
     },
+    -- kitty config syntax highlighting
+    { 'fladson/vim-kitty' },
 }
