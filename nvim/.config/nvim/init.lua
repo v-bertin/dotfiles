@@ -19,6 +19,7 @@ require("config.mason")
 require("config.autocomplete")
 require("config.keymaps")
 require("config.notes")
+require("config.aesthetic")
 
 -- Neovim related configs
 
