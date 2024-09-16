@@ -122,3 +122,9 @@ GO_PATH="/home/victor/go/bin/"
 if [ -d "$GO_PATH" ]; then
     export PATH="$GO_PATH:$PATH"
 fi
+
+# custom bash prompt : see https://github.com/git/git/blob/master/contrib/completion/git-prompt.sh
+. "$HOME/.git-prompt.sh"
+PROMPT_COMMAND='PS1_CMD1=$(__git_ps1 " (%s)")'; PS1=' \[\e[38;5;22;1m\]\w\[\e[0;2m\]${PS1_CMD1}\[\e[0m\] > '
+# show repo state : uncommited changes, untracked files, etc
+export GIT_PS1_SHOWDIRTYSTATE=1
