@@ -5,3 +5,6 @@
 [submodule "fonts/.local/share"]
 	path = fonts/.local/share
 	url = https://github.com/0xType/0xProto
+[submodule "kitty/.config/kitty/kitten/search"]
+	path = kitty/.config/kitty/kitten/search
+	url = https://github.com/trygveaa/kitty-kitten-search
