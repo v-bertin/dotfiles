@@ -32,6 +32,9 @@ alias diff='diff -u --color'
 # Rust
 alias x='cargo xtask'
 
+# Kitty
+alias icat='kitty +kitten icat --align=left'
+
 # Explore archives
 alias treezip='unzip -l'
 alias treetar='tar jtvf'
