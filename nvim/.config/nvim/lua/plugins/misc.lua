@@ -8,4 +8,10 @@ return {
     },
     -- kitty config syntax highlighting
     { 'fladson/vim-kitty' },
+    -- improved rust_analyzer experience
+    {
+        'mrcjkb/rustaceanvim',
+        version = '^5', -- Recommended
+        lazy = false, -- This plugin is already lazy
+    },
 }

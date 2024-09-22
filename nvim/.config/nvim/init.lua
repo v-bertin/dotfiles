@@ -6,7 +6,6 @@ LSPs = {
     "lua_ls",               -- Lua
     "clangd",               -- C/C++
     "neocmake",             -- CMake 
-    "rust_analyzer",        -- Rust
     "bashls",               -- Bash
     "ruff",                 -- Python : lint and format code
     "jedi_language_server", -- Python : autocomplete
