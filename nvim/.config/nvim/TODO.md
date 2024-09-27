@@ -14,6 +14,8 @@
 - [x] Find a file in the current directory
 - [x] View and easily move around the current directory from a pop-up window
 - [ ] Run bash commands and output stdout and stderr in a separate buffer
+- [x] Visualize pictures in file browser
+- [x] Markdown visualizer
 
 ## Code : C, C++, Rust, Python, Bash
 
@@ -21,9 +23,12 @@
 - [x] Jump to definition
 - [ ] Jump back to previous file
 - [x] Documentation about function prototype and usage when typing its name
-- [ ] Project wide rename
+- [x] Project wide rename
 - [ ] View and jump to code issue via quickfix list
-- [ ] Project wide replace tabs by spaces and vice versa
+- [x] Project wide replace tabs by spaces and vice versa
+- [ ] Snippets for common code structures (print, class declaration, switch, if, etc)
+- [ ] Convert to CamelCase
+- [ ] Convert to snake_case
 
 ## Git
 
@@ -33,5 +38,5 @@
 
 ## Configuration
 
-- [ ] Add code support for new language / configuration file
-- [ ] Share the configuration in a readable format
+- [x] Add code support for new language / configuration file
+- [x] Share the configuration in a readable format

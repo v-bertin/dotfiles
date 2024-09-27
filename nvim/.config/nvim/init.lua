@@ -1,6 +1,11 @@
 -- Plugin manager
 require("config.lazy")
 
+-- TODO LSP servers
+-- 1. Pass parameters :
+-- see [kickstart.nvim](https://github.com/v-bertin/kickstart.nvim/blob/3ce3251296265582893e66770c5e3be84d7a24a7/init.lua#L572)
+-- 2. Specify dependencies (for ex, rust_analyzer depends on webapi-vim)
+
 -- Mason settings
 LSPs = {
     "lua_ls",               -- Lua
