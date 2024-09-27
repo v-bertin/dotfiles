@@ -1,6 +1,6 @@
-# ~/.bashrc: executed by bash(1) for non-login shells.
-# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
-# for examples
+# ~/.bashrc
+# See /usr/share/doc/bash/examples
+# See `man 1 bash`
 
 # If not running interactively, don't do anything
 case $- in
@@ -8,69 +8,27 @@ case $- in
       *) return;;
 esac
 
-# don't put duplicate lines or lines starting with space in the history.
-# See bash(1) for more options
-HISTCONTROL=ignoreboth
+# make less more friendly for non-text input files, see lesspipe(1)
+[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+
+
+# History settings
 
 # append to the history file, don't overwrite it
 shopt -s histappend
-
-# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=5000
-HISTFILESIZE=10000
-
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
-# If set, the pattern "**" used in a pathname expansion context will
-# match all files and zero or more directories and subdirectories.
-#shopt -s globstar
+HISTFILE="$HOME/.bash_history"
+# don't put duplicate lines or lines starting with space in the history.
+HISTCONTROL=ignoreboth
+# history length
+HISTSIZE=5000
+HISTFILESIZE=10000
 
-# make less more friendly for non-text input files, see lesspipe(1)
-[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
-# set variable identifying the chroot you work in (used in the prompt below)
-if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
-    debian_chroot=$(cat /etc/debian_chroot)
-fi
-
-# set a fancy prompt (non-color, unless we know we "want" color)
-case "$TERM" in
-    xterm-color|*-256color|xterm-kitty) color_prompt=yes;;
-esac
-
-# uncomment for a colored prompt, if the terminal has the capability; turned
-# off by default to not distract the user: the focus in a terminal window
-# should be on the output of commands, not on the prompt
-#force_color_prompt=yes
-
-if [ -n "$force_color_prompt" ]; then
-    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-	# We have color support; assume it's compliant with Ecma-48
-	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
-	# a case would tend to support setf rather than setaf.)
-	color_prompt=yes
-    else
-	color_prompt=
-    fi
-fi
-
-if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
-fi
-unset color_prompt force_color_prompt
-
-# If this is an xterm set the title to user@host:dir
-case "$TERM" in
-xterm*|rxvt*)
-    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
-    ;;
-*)
-    ;;
-esac
+# Handy colors
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
@@ -80,20 +38,19 @@ fi
 # colored GCC warnings and errors
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
-# Alias definitions.
-# You may want to put all your additions into a separate file like
-# ~/.bash_aliases, instead of adding them here directly.
-# See /usr/share/doc/bash-doc/examples in the bash-doc package.
+
+# Aliases
 
 if [ -f ~/.bash_aliases ]; then
     . "$HOME/.bash_aliases"
 fi
 
+
+# Completion
+
 # Add local directory to store bash completion scripts
 export BASH_COMPLETION_COMPAT_DIR="$HOME/.local/share/bash_completion.d"
-# enable programmable completion features (you don't need to enable
-# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
-# sources /etc/bash.bashrc).
+# enable programmable completion features
 if ! shopt -oq posix; then
   if [ -f /usr/share/bash-completion/bash_completion ]; then
     . /usr/share/bash-completion/bash_completion
@@ -102,7 +59,13 @@ if ! shopt -oq posix; then
   fi
 fi
 
+
+# Setup env
+
 export PATH="$PATH:$HOME/.local/bin/"
+
+# Rust
+# shellcheck source=/dev/null
 . "$HOME/.cargo/env"
 
 # Tell ranger to use nvim as the default editor
@@ -112,7 +75,7 @@ export EDITOR=nvim
 # Set bash in vim mode
 set -o vi
 
-# fnm
+# fnm: manage node versions
 FNM_PATH="/home/victor/.local/share/fnm"
 if [ -d "$FNM_PATH" ]; then
   export PATH="$FNM_PATH:$PATH"
@@ -120,15 +83,20 @@ if [ -d "$FNM_PATH" ]; then
 fi
 
 # go
-GO_PATH="/home/victor/go/bin/"
+GO_PATH="$HOME/go/bin/"
 if [ -d "$GO_PATH" ]; then
     export PATH="$GO_PATH:$PATH"
 fi
 
+
+# Prompt
+
 # Limit the length of the path in the prompt to three levels
 export PROMPT_DIRTRIM=3
-# custom bash prompt : see https://github.com/git/git/blob/master/contrib/completion/git-prompt.sh
-. "$HOME/.git-prompt.sh"
-PROMPT_COMMAND='PS1_CMD1=$(__git_ps1 " (%s)")'; PS1=' \[\e[38;5;22;1m\]\w\[\e[0;2m\]${PS1_CMD1}\[\e[0m\] > '
 # show repo state : uncommited changes, untracked files, etc
 export GIT_PS1_SHOWDIRTYSTATE=1
+# custom bash prompt : see https://github.com/git/git/blob/master/contrib/completion/git-prompt.sh
+# shellcheck source=/dev/null
+. "$HOME/.git-prompt.sh"
+PROMPT_COMMAND='PS1_CMD1=$(__git_ps1 " (%s)")'
+PS1=' \[\e[38;5;22;1m\]\w\[\e[0;2m\]${PS1_CMD1}\[\e[0m\] > '
