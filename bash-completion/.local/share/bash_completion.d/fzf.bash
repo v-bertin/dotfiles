@@ -574,6 +574,16 @@ __fzf_defc kill _fzf_proc_completion "-o default -o bashdefault"
 # ssh
 __fzf_defc ssh _fzf_complete_ssh "-o default -o bashdefault"
 
+# git branch
+
+_fzf_git_branch_completion() {
+  _fzf_complete -m -- "$@" < <(
+    git branch | command sed -En 's|. (.*)|\1|p'
+  )
+}
+
+__fzf_defc git _fzf_git_branch_completion "-o default -o bashdefault"
+
 unset cmd d_cmds a_cmds v_cmds
 
 _fzf_setup_completion() {
