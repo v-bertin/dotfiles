@@ -86,9 +86,11 @@ export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quo
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 
 if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
+    . "$HOME/.bash_aliases"
 fi
 
+# Add local directory to store bash completion scripts
+export BASH_COMPLETION_COMPAT_DIR="$HOME/.local/share/bash_completion.d"
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
@@ -100,7 +102,7 @@ if ! shopt -oq posix; then
   fi
 fi
 
-export PATH="$PATH:~/.local/bin/"
+export PATH="$PATH:$HOME/.local/bin/"
 . "$HOME/.cargo/env"
 
 # Tell ranger to use nvim as the default editor
@@ -123,6 +125,7 @@ if [ -d "$GO_PATH" ]; then
     export PATH="$GO_PATH:$PATH"
 fi
 
+# Limit the length of the path in the prompt to three levels
 export PROMPT_DIRTRIM=3
 # custom bash prompt : see https://github.com/git/git/blob/master/contrib/completion/git-prompt.sh
 . "$HOME/.git-prompt.sh"
