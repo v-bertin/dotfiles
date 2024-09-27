@@ -14,4 +14,9 @@ return {
         version = '^5', -- Recommended
         lazy = false, -- This plugin is already lazy
     },
+    -- autocomplete for Cargo.toml files
+    {
+        'saecki/crates.nvim',
+        tag = 'stable',
+    },
 }

@@ -75,3 +75,19 @@ vim.g.rustaceanvim = {
   dap = {
   },
 }
+
+require('crates').setup {
+    completion = {
+        cmd = {
+            enabled = true,
+        }
+    },
+    autoload = true,
+    lsp = {
+        enabled = true,
+        on_attach = on_attach,
+        actions = true,
+        completion = true,
+        hover = true,
+    },
+}
