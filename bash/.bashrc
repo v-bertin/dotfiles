@@ -16,8 +16,8 @@ HISTCONTROL=ignoreboth
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
+HISTSIZE=5000
+HISTFILESIZE=10000
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -123,6 +123,7 @@ if [ -d "$GO_PATH" ]; then
     export PATH="$GO_PATH:$PATH"
 fi
 
+export PROMPT_DIRTRIM=3
 # custom bash prompt : see https://github.com/git/git/blob/master/contrib/completion/git-prompt.sh
 . "$HOME/.git-prompt.sh"
 PROMPT_COMMAND='PS1_CMD1=$(__git_ps1 " (%s)")'; PS1=' \[\e[38;5;22;1m\]\w\[\e[0;2m\]${PS1_CMD1}\[\e[0m\] > '

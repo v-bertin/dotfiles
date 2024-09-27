@@ -1,18 +1,12 @@
 # Safety measure because what you think already happened to me
 alias rm='rmtrash'
 alias rmdir='rmdirtrash'
-
-force-rm() {
-	echo "Are you sure you want to delete $* (Y/n) ?"
-	read -r answer
-	case ${answer:0:1} in
-		Y )	/usr/bin/rm -rf "${@}";;
-		* )	;;
-	esac
-}
+alias _rm='/usr/bin/rm'
+alias _rmdir='/usr/bin/rmdir'
 
 # Sooo convenient
-alias pwd='pwd | tee >(tr -d "\n" | xclip -sel clip)'
+alias pwd='pwd | tee >(tr --delete "\n" | xclip -sel clip)'
+alias _pwd='/usr/bin/pwd'
 
 # Blazingly fast search
 alias fd='fdfind'
@@ -37,7 +31,10 @@ alias icat='kitty +kitten icat --align=left'
 
 # Explore archives
 alias treezip='unzip -l'
-alias treetar='tar jtvf'
+alias treetar='tar jtf'
+
+# fzf magic to fuzzy find a command in the history
+alias fzfstory='history | cut --delimiter=" " --field=1,2,3 --complement | sort --unique | fzf --exact | xclip -sel clip'
 
 # Others
 addpath() {
