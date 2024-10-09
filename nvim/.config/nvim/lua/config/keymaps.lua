@@ -3,6 +3,11 @@ vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnos
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
 
+vim.keymap.set('n', 'gp', ':Gitsigns preview_hunk<CR>', { desc = 'Open hunk preview', silent = true })
+vim.keymap.set('n', 'gN', ':Gitsigns prev_hunk<CR>', { desc = 'Go to previous hunk', silent = true })
+vim.keymap.set('n', 'gn', ':Gitsigns next_hunk<CR>', { desc = 'Go to next hunk', silent = true })
+vim.keymap.set('n', 'gr', ':Gitsigns reset_hunk<CR>', { desc = 'Reset current hunk', silent = true })
+
 local split_whitespace = function(content)
     local lines = {}
     for line in string.gmatch(content, "[^\n]+") do
