@@ -27,4 +27,6 @@ return {
             { "Bilal2453/luvit-meta", lazy = true }, -- optional `vim.uv` typings
         },
     },
+    -- Enhance yamlls and jsonlsp by validating common files against their associated schemas
+    "b0o/schemastore.nvim",
 }

@@ -15,6 +15,8 @@ LSPs = {
     "ruff",                 -- Python : lint and format code
     "pyright",              -- Python : autocomplete
     "typos_lsp",            -- Spelling checker
+    "jsonls",               -- JSON file validation
+    "yamlls",               -- YAML file validation
 }
 
 -- Plugin related configs
