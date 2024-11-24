@@ -14,6 +14,7 @@ LSPs = {
     "bashls",               -- Bash
     "ruff",                 -- Python : lint and format code
     "pyright",              -- Python : autocomplete
+    "typos_lsp",            -- Spelling checker
 }
 
 -- Plugin related configs
