@@ -13,7 +13,7 @@ LSPs = {
     "neocmake",             -- CMake 
     "bashls",               -- Bash
     "ruff",                 -- Python : lint and format code
-    "jedi_language_server", -- Python : autocomplete
+    "pyright",              -- Python : autocomplete
 }
 
 -- Plugin related configs
