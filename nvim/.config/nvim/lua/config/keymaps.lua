@@ -6,7 +6,12 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 vim.keymap.set('n', 'gp', ':Gitsigns preview_hunk<CR>', { desc = 'Open hunk preview', silent = true })
 vim.keymap.set('n', 'gN', ':Gitsigns prev_hunk<CR>', { desc = 'Go to previous hunk', silent = true })
 vim.keymap.set('n', 'gn', ':Gitsigns next_hunk<CR>', { desc = 'Go to next hunk', silent = true })
-vim.keymap.set('n', 'gr', ':Gitsigns reset_hunk<CR>', { desc = 'Reset current hunk', silent = true })
+vim.keymap.set('n', 'grr', ':Gitsigns reset_hunk<CR>', { desc = 'Reset current hunk', silent = true })
+
+vim.keymap.set('n', 'qo', '<Cmd>copen<CR>', { desc = 'Open Quickfixlist', silent = true })
+vim.keymap.set('n', 'qc', '<Cmd>cclose<CR>', { desc = 'Close Quickfixlist', silent = true })
+vim.keymap.set('n', 'qn', '<Cmd>cnext<CR>', { desc = 'Go to next item in Quickfixlist', silent = true })
+vim.keymap.set('n', 'qN', '<Cmd>cprev<CR>', { desc = 'Go to prev item in Quickfixlist', silent = true })
 
 local split_whitespace = function(content)
     local lines = {}
