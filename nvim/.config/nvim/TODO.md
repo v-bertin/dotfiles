@@ -24,11 +24,11 @@
 - [ ] Jump back to previous file
 - [x] Documentation about function prototype and usage when typing its name
 - [x] Project wide rename
-- [ ] View and jump to code issue via quickfix list
+- [x] View and jump to code issue via quickfix list
 - [x] Project wide replace tabs by spaces and vice versa
 - [ ] Snippets for common code structures (print, class declaration, switch, if, etc)
-- [ ] Convert to CamelCase
-- [ ] Convert to snake_case
+- [x] Convert to CamelCase
+- [x] Convert to snake_case
 
 ## Git
 

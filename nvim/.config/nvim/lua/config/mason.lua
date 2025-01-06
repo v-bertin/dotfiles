@@ -41,6 +41,7 @@ local mason_lspconfig = require 'mason-lspconfig'
 
 mason_lspconfig.setup {
     ensure_installed = LSPs,
+    automatic_installation = true,
 }
 
 -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
@@ -53,15 +54,13 @@ mason_lspconfig.setup_handlers {
       capabilities = capabilities,
       on_attach = on_attach,
       settings = LSPs[server_name],
-      filetypes = (LSPs[server_name] or {}).filetypes,
     }
   end,
 }
 
 vim.g.rustaceanvim = {
   -- Plugin configuration
-  tools = {
-  },
+  tools = {},
   -- LSP configuration
   server = {
     on_attach = on_attach,
@@ -72,15 +71,12 @@ vim.g.rustaceanvim = {
     },
   },
   -- DAP configuration
-  dap = {
-  },
+  dap = {},
 }
 
 require('crates').setup {
     completion = {
-        cmd = {
-            enabled = true,
-        }
+        cmd = { enabled = true, }
     },
     autoload = true,
     lsp = {
