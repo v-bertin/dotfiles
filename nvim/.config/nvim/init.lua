@@ -17,6 +17,7 @@ LSPs = {
     "typos_lsp",            -- Spelling checker
     "jsonls",               -- JSON file validation
     "yamlls",               -- YAML file validation
+    "ts_ls",                -- Typescript
 }
 
 -- Plugin related configs
