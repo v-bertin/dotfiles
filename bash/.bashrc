@@ -62,7 +62,7 @@ fi
 
 # Setup env
 
-export PATH="$PATH:$HOME/.local/bin/"
+export PATH="$PATH:$HOME/.local/bin:/usr/local/bin"
 
 # Rust
 # shellcheck source=/dev/null
@@ -93,10 +93,13 @@ fi
 
 # Limit the length of the path in the prompt to three levels
 export PROMPT_DIRTRIM=3
-# show repo state : uncommited changes, untracked files, etc
+# show repo state : uncommitted changes, untracked files, etc
 export GIT_PS1_SHOWDIRTYSTATE=1
 # custom bash prompt : see https://github.com/git/git/blob/master/contrib/completion/git-prompt.sh
 # shellcheck source=/dev/null
 . "$HOME/.git-prompt.sh"
 PROMPT_COMMAND='PS1_CMD1=$(__git_ps1 " (%s)")'
 PS1=' \[\e[38;5;22;1m\]\w\[\e[0;2m\]${PS1_CMD1}\[\e[0m\] > '
+
+# autocomplete
+complete -C "$(which aws_completer)" aws
