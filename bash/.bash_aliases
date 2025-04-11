@@ -28,10 +28,12 @@ alias x='cargo xtask'
 
 # Kitty
 alias icat='kitty +kitten icat --align=left'
+# See https://wiki.archlinux.org/title/Kitty#Terminal_issues_with_SSH
+alias kssh='kitty +kitten ssh'
 
 # Explore archives
 alias treezip='unzip -l'
-alias treetar='tar jtf'
+alias treetar='tar tf'
 
 # fzf magic to fuzzy find a command in the history
 alias fzfstory='history | cut --delimiter=" " --field=1,2,3 --complement | sort --unique | fzf --exact | xclip -sel clip'
