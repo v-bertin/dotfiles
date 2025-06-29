@@ -11,8 +11,8 @@ return {
     -- improved rust_analyzer experience
     {
         'mrcjkb/rustaceanvim',
-        version = '^5', -- Recommended
-        lazy = false, -- This plugin is already lazy
+        version = '^6', -- Recommended
+        lazy = false,   -- This plugin is already lazy
     },
     -- autocomplete for Cargo.toml files
     {
@@ -42,4 +42,27 @@ return {
     -- crc - coerce to camelCase
     -- cru - coerce to UPPER_CASE
     { "tpope/vim-abolish" },
+    -- Github Copilot
+    {
+        "zbirenbaum/copilot.lua",
+        config = function()
+            require('copilot').setup({
+                suggestion = {
+                    auto_trigger = false,
+                    enabled = false,
+                },
+                panel = {
+                    enabled = false,
+                },
+            })
+        end
+    },
+    {
+        "zbirenbaum/copilot-cmp",
+        config = function()
+            require("copilot_cmp").setup()
+        end
+    },
+    -- hex editor
+    { "RaafatTurki/hex.nvim" },
 }

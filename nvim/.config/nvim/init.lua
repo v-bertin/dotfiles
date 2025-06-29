@@ -1,33 +1,42 @@
 -- Plugin manager
 require("config.lazy")
 
--- TODO LSP servers
--- 1. Pass parameters :
--- see [kickstart.nvim](https://github.com/v-bertin/kickstart.nvim/blob/3ce3251296265582893e66770c5e3be84d7a24a7/init.lua#L572)
--- 2. Specify dependencies (for ex, rust_analyzer depends on webapi-vim)
-
--- Mason settings
+-- LSP settings
 LSPs = {
-    "lua_ls",               -- Lua
-    "clangd",               -- C/C++
-    "neocmake",             -- CMake 
-    "bashls",               -- Bash
-    "ruff",                 -- Python : lint and format code
-    "pyright",              -- Python : autocomplete
-    "typos_lsp",            -- Spelling checker
-    "jsonls",               -- JSON file validation
-    "yamlls",               -- YAML file validation
-    "ts_ls",                -- Typescript
+    lua_ls = {},    -- Lua
+    clangd = {},    -- C/C++
+    neocmake = {},  -- CMake
+    bashls = {},    -- Bash
+    ruff = {},      -- Python : lint and format code
+    pyright = {},   -- Python : autocomplete
+    typos_lsp = {}, -- Spelling checker
+    jsonls = {},    -- JSON file validation
+    yamlls = {},    -- YAML file validation
+    ts_ls = {},     -- Typescript
+}
+
+-- Linter settings
+Linters = {
+    gersemi = {},   -- CMake formatter
+    cmakelang = {}, -- CMake linter
+    yamlfmt = {},   -- YAML formatter
+    prettier = {},  -- Markdown formatter
+    stylua = {},    -- Lua formatter
+    taplo = {},     -- TOML formatter
 }
 
 -- Plugin related configs
-require("config.telescope")
-require("config.git")
-require("config.mason")
-require("config.autocomplete")
-require("config.keymaps")
-require("config.notes")
+
 require("config.aesthetic")
+require("config.autocomplete")
+require("config.conform")
+require("config.git")
+require("config.hex")
+require("config.keymaps")
+require("config.mason")
+require("config.notes")
+require("config.telescope")
+require("config.treesitter")
 
 -- Neovim related configs
 

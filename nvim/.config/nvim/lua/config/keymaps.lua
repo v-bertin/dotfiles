@@ -13,6 +13,13 @@ vim.keymap.set('n', 'qc', '<Cmd>cclose<CR>', { desc = 'Close Quickfixlist', sile
 vim.keymap.set('n', 'qn', '<Cmd>cnext<CR>', { desc = 'Go to next item in Quickfixlist', silent = true })
 vim.keymap.set('n', 'qN', '<Cmd>cprev<CR>', { desc = 'Go to prev item in Quickfixlist', silent = true })
 
+vim.keymap.set('n', 'ff', function()
+    require("conform").format({
+        lsp_fallback = true,
+        async = false,
+    })
+end, { desc = "Format file or range (in visual mode)" })
+
 local split_whitespace = function(content)
     local lines = {}
     for line in string.gmatch(content, "[^\n]+") do
