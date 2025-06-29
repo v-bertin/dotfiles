@@ -103,3 +103,8 @@ PS1=' \[\e[38;5;22;1m\]\w\[\e[0;2m\]${PS1_CMD1}\[\e[0m\] > '
 
 # autocomplete
 complete -C "$(which aws_completer)" aws
+
+# direnv
+eval "$(direnv hook bash)"
+
+# misc

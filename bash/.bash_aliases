@@ -5,8 +5,8 @@ alias _rm='/usr/bin/rm'
 alias _rmdir='/usr/bin/rmdir'
 
 # Sooo convenient
-alias pwd='pwd | tee >(tr --delete "\n" | xclip -sel clip)'
-alias _pwd='/usr/bin/pwd'
+alias cwd='pwd | tee >(tr --delete "\n" | xclip -sel clip)'
+alias rmcolor='sed -r "s/\x1B\[([0-9]{1,3}(;[0-9]{1,2};?)?)?[mGK]//g"'
 
 # Blazingly fast search
 alias fd='fdfind'
@@ -15,6 +15,13 @@ alias bat='batcat'
 # Before I switch to lsd ...
 alias ll='ls --almost-all --human-readable -l'
 alias la='ls --almost-all'
+
+# List the n most recent entries in the given directory
+lt() {
+    lines=${1:-2}
+    shift
+    ll -t "$@" | head -n $((1+lines))
+}
 
 # Life in color
 alias ls='ls --color=auto'
