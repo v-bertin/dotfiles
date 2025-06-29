@@ -25,6 +25,7 @@
     stats = "!git diff --stat \"$1\"~ \"$1\" #"
     # Check history of a given file
     follow = log --follow
+    recommit = commit --amend --no-edit
 
 [credential]
     helper = store
