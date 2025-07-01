@@ -39,6 +39,7 @@ require("config.mason")
 require("config.notes")
 require("config.telescope")
 require("config.treesitter")
+require("config.dts_lsp")
 
 -- Neovim related configs
 
