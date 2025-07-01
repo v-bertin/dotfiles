@@ -7,6 +7,7 @@ conform.setup({
         yaml = { "yamlfmt" },
         markdown = { "prettier" },
         toml = { "taplo" },
+        bitbake = { "oelint" },
     },
 })
 
@@ -30,4 +31,11 @@ conform.formatters.cmakelang = {
 
         return args
     end,
+}
+
+conform.formatters.oelint = {
+    command = vim.fn.expand("$MASON/bin/oelint-adv"),
+    args = { "--fix", "--nobackup", "--jobs=1", "--quiet", "$FILENAME" },
+    stdin = false,
+    exit_codes = { 0, 1 },
 }

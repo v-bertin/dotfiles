@@ -25,6 +25,8 @@ Linters = {
     taplo = {},     -- TOML formatter
 }
 
+Linters["oelint-adv"] = {} -- Bitbake linter
+
 -- Plugin related configs
 
 require("config.aesthetic")
