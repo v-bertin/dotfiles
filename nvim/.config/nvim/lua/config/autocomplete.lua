@@ -24,11 +24,19 @@ cmp.setup({
     sources = cmp.config.sources({
         { name = 'nvim_lsp' },
         { name = 'crates' },
+        { name = 'minuet' },
         { name = 'copilot' },
         { name = 'path' },
     }, {
         { name = 'buffer' },
-    })
+    }),
+    performance = {
+        -- It is recommended to increase the timeout duration due to
+        -- the typically slower response speed of LLMs compared to
+        -- other completion sources. This is not needed when you only
+        -- need manual completion.
+        fetching_timeout = 2000,
+    },
 })
 
 -- To use git you need to install the plugin petertriho/cmp-git and uncomment lines below
@@ -40,4 +48,5 @@ cmp.setup.filetype('gitcommit', {
         { name = 'buffer' },
     })
 })
-require("cmp_git").setup()
+local config = require("cmp_git.config")
+require("cmp_git").setup(config)

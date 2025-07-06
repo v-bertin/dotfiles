@@ -30,6 +30,7 @@ Linters["oelint-adv"] = {} -- Bitbake linter
 -- Plugin related configs
 
 require("config.aesthetic")
+require("config.ai")
 require("config.autocomplete")
 require("config.conform")
 require("config.git")
