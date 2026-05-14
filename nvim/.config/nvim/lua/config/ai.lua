@@ -18,5 +18,11 @@ require("minuet").setup({
 				top_p = 0.9,
 			},
 		},
+        codestral = {
+            optional = {
+                max_tokens = 256,
+                stop = { '\n\n' },
+            },
+        },
 	},
 })
