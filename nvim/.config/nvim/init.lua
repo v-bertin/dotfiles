@@ -67,3 +67,4 @@ vim.o.shiftwidth = 4   -- Change the number of spaces characters inserted for in
 vim.o.expandtab = true -- Converts tabs to spaces
 
 vim.lsp.enable('actionsls')
+vim.lsp.enable('vscode-bitbake')
