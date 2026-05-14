@@ -15,4 +15,6 @@ return {
             "nvim-lua/plenary.nvim"
         }
     },
+    -- Use telescope picker instead of the ugly vim.ui.select
+	{ "nvim-telescope/telescope-ui-select.nvim" },
 }

@@ -29,6 +29,7 @@ telescope.setup {
 }
 
 telescope.load_extension("file_browser")
+telescope.load_extension("ui-select")
 
 vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = 'Open buffer list' })
 vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = 'Find a file' })
