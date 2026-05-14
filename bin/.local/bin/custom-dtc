@@ -1,14 +1,16 @@
 #! /usr/bin/bash
 
-if [[ "$1" == "help" ]]; then
-   echo "./custom-dtc input.dts"
+set -e
+
+if [ "$1" = "help" ] || [ "$1" = "" ]; then
+   echo "USAGE: ./custom-dtc input.dts"
    exit 0
 fi
 
 source=$1
 extension=${source##*.}
 
-if [[ "${extension}" != "dts" ]]; then
+if [ "${extension}" != "dts" ]; then
    echo "Invalid extension ${extension}"
    exit 1
 fi
