@@ -39,6 +39,7 @@ telescope.load_extension("file_browser")
 telescope.load_extension("ui-select")
 
 vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = 'Open buffer list' })
+vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = 'Search diagnostics' })
 vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = 'Find a file' })
 vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = 'Look for a regular expression in the current directory' })
 vim.keymap.set('n', '<space>f', function()

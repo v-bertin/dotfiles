@@ -8,6 +8,8 @@ conform.setup({
         markdown = { "prettier" },
         toml = { "taplo" },
         bitbake = { "oelint" },
+        protobuf = { "buf" },
+        html = { "prettier" },
     },
 })
 

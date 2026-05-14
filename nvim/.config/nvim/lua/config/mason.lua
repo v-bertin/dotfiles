@@ -74,6 +74,12 @@ require("mason-lspconfig").setup({
     },
 })
 
+-- Seems a bit redondant with what's above, but the other options won't apply otherwise
+for server, config in pairs(LSPs) do
+    config.capabilities = vim.tbl_deep_extend('force', capabilities, config.capabilities or {})
+    vim.lsp.config[server] = config
+end
+
 vim.api.nvim_create_autocmd('LspAttach', {
     group = vim.api.nvim_create_augroup('lsp-attach', {}),
     callback = function(args)
@@ -87,8 +93,7 @@ vim.g.rustaceanvim = {
         on_attach = on_attach,
         default_settings = {
             -- rust-analyzer language server configuration
-            ['rust-analyzer'] = {
-            },
+            ['rust-analyzer'] = {},
         },
     },
 }

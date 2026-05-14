@@ -11,6 +11,7 @@ require("nvim-treesitter.configs").setup({
         "make",
         "markdown",
         "markdown_inline",
+        "proto",
         "python",
         "rust",
         "yaml",
@@ -35,6 +36,8 @@ require("nvim-treesitter.configs").setup({
 
 vim.filetype.add({
     extension = {
+        inc = 'bitbake',
+        spec = 'python',
         vspec = 'yaml',
     },
     pattern = {

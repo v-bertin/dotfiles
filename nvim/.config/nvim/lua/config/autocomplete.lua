@@ -25,7 +25,6 @@ cmp.setup({
         { name = 'nvim_lsp' },
         { name = 'crates' },
         { name = 'minuet' },
-        { name = 'copilot' },
         { name = 'path' },
     }, {
         { name = 'buffer' },

@@ -10,16 +10,22 @@ vim.api.nvim_create_autocmd("VimEnter", {
 
 -- LSP settings
 LSPs = {
-    lua_ls = {},    -- Lua
-    clangd = {},    -- C/C++
-    neocmake = {},  -- CMake
-    bashls = {},    -- Bash
-    ruff = {},      -- Python : lint and format code
-    pyright = {},   -- Python : autocomplete
-    typos_lsp = {}, -- Spelling checker
-    jsonls = {},    -- JSON file validation
-    yamlls = {},    -- YAML file validation
-    ts_ls = {},     -- Typescript
+    lua_ls = {},        -- Lua
+    clangd = {
+        -- To prevent clangd to start when opening proto files
+        filetypes = { 'c', 'cpp', 'h', 'hpp' },
+    },                  -- C/C++
+    neocmake = {},      -- CMake
+    bashls = {},        -- Bash
+    ruff = {},          -- Python : lint and format code
+    -- ty = {},         -- Python : type checker by the same creators as ruff
+    pyright = {},       -- Python : autocomplete
+    typos_lsp = {},     -- Spelling checker
+    jsonls = {},        -- JSON file validation
+    yamlls = {},        -- YAML file validation
+    ts_ls = {},         -- Typescript
+    mesonlsp = {},      -- Meson
+    terraformls = {},   -- Terraform
 }
 
 -- Linter settings
@@ -30,6 +36,7 @@ Linters = {
     prettier = {},  -- Markdown formatter
     stylua = {},    -- Lua formatter
     taplo = {},     -- TOML formatter
+    buf_ls = {},    -- Protobuf file formatter
 }
 
 Linters["oelint-adv"] = {} -- Bitbake linter
@@ -68,3 +75,4 @@ vim.o.expandtab = true -- Converts tabs to spaces
 
 vim.lsp.enable('actionsls')
 vim.lsp.enable('vscode-bitbake')
+vim.lsp.enable('nixd')
