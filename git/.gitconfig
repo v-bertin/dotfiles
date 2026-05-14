@@ -1,6 +1,7 @@
 [user]
     email = victor.bertin@b-on.com
     name = Victor Bertin
+    signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINNCEbme82bjJ+lIwttrt82MJmQSn8XLAzZSkscpSFbz
 [core]
     editor = nvim
 
@@ -19,17 +20,34 @@
 [alias]
     # Mastermind Git History Browsing
     lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-    # Check content of a given commit
+    # Print content of a given commit
     content = "!git diff \"$1\"~ \"$1\" #"
-    # Check stats for a given commit
+    # Print a list of files modified in a given commit
+    ls = show --pretty="" --name-only
+    # Print stats for a given commit
     stats = "!git diff --stat \"$1\"~ \"$1\" #"
     # Check history of a given file
     follow = log --follow
     recommit = commit --amend --no-edit
+    # Unstage and unto modifications done to a given file
+    # Useful when lock files conflict when rebasing
+    unmerge = !git restore --staged $1 && git restore $1
 
-[credential]
-    helper = store
-[pull]
-    rebase = true
+# Project preferences
 [init]
     defaultBranch = main
+[pull]
+    rebase = true
+
+# Security & signing
+[credential]
+    helper = store
+# See https://developer.1password.com/docs/ssh/get-started/
+[gpg]
+    format = ssh
+[gpg "ssh"]
+    program = "/opt/1Password/op-ssh-sign"
+[commit]
+    gpgsign = true
+[color]
+	ui = auto
