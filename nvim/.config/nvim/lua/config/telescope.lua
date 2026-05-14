@@ -27,6 +27,10 @@ telescope.setup {
                     ["<right>"] = actions.select_default,
                 }
             },
+            hidden = {
+                file_browser = true,
+                folder_browser = true,
+            },
         },
     },
 }
