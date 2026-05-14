@@ -37,4 +37,7 @@ vim.filetype.add({
     extension = {
         vspec = 'yaml',
     },
+    pattern = {
+        [".*/%.github/workflows/.*%.ya?ml"] = "yaml.ghactions",
+    },
 })

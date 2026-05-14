@@ -58,3 +58,5 @@ vim.wo.relativenumber = true
 vim.o.tabstop = 4      -- Insert 4 spaces for a tab
 vim.o.shiftwidth = 4   -- Change the number of spaces characters inserted for indentation
 vim.o.expandtab = true -- Converts tabs to spaces
+
+vim.lsp.enable('actionsls')
