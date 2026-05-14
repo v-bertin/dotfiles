@@ -1,6 +1,13 @@
 -- Plugin manager
 require("config.lazy")
 
+vim.api.nvim_create_autocmd("VimEnter", {
+	callback = function()
+		local lazy = require("lazy")
+        lazy.update({ show = false })
+	end,
+})
+
 -- LSP settings
 LSPs = {
     lua_ls = {},    -- Lua
