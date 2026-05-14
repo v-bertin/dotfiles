@@ -6,7 +6,6 @@ alias _rmdir='/usr/bin/rmdir'
 
 # Sooo convenient
 alias cwd='pwd | tee >(tr --delete "\n" | xclip -sel clip)'
-alias rmcolor='sed -r "s/\x1B\[([0-9]{1,3}(;[0-9]{1,2};?)?)?[mGK]//g"'
 
 # Blazingly fast search
 alias fd='fdfind'

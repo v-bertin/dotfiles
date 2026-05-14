@@ -103,3 +103,6 @@ vim.api.nvim_create_user_command(
     end,
     { nargs = '*' }
 )
+
+-- Remove ANSI color codes
+vim.api.nvim_create_user_command('Decolorize', [[ %s#\e\[[0-9;]*m##g ]], {})
