@@ -11,6 +11,9 @@ vim.keymap.set('n', 'qc', '<Cmd>cclose<CR>', { desc = 'Close Quickfixlist', sile
 vim.keymap.set('n', 'qn', '<Cmd>cnext<CR>', { desc = 'Go to next item in Quickfixlist', silent = true })
 vim.keymap.set('n', 'qN', '<Cmd>cprev<CR>', { desc = 'Go to prev item in Quickfixlist', silent = true })
 
+vim.keymap.set('n', '<leader><right>', ':tabnext<CR>', { desc = "Go to next tab" })
+vim.keymap.set('n', '<leader><left>', ':tabprevious<CR>', { desc = "Go to previous tab" })
+
 vim.keymap.set('n', 'ff', function()
     require("conform").format({
         lsp_fallback = true,
