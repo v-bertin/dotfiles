@@ -29,12 +29,12 @@ git submodule update --init --recursive
 mv ~/.bashrc ~/.bashrc.bak
 mv ~/.gitignore ~/.gitignore.bak
 
-stow bash bash-completion bin fonts git kitty nvim rmtrash
+stow bash bash-completion bin fonts ghostty git kitty nvim rmtrash
 fc-cache ~/.local/share/fonts/
 ```
 
 ## Uninstall
 
 ```bash
-stow -D bash bash-completion bin fonts git kitty nvim rmtrash
+stow -D bash bash-completion bin fonts ghostty git kitty nvim rmtrash
 ```
