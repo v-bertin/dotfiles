@@ -5,6 +5,9 @@ local actions = require("telescope.actions")
 local fb_actions = require("telescope._extensions.file_browser.actions")
 
 telescope.setup {
+    defaults = {
+        wrap_results = true,
+    },
     extensions = {
         file_browser = {
             theme = "ivy",
