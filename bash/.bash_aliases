@@ -11,16 +11,21 @@ alias cwd='pwd | tee >(tr --delete "\n" | xclip -sel clip)'
 alias fd='fdfind'
 alias bat='batcat'
 
-# Before I switch to lsd ...
+# Listing
 alias ll='ls --almost-all --human-readable -l'
 alias la='ls --almost-all'
 
 # List the n most recent entries in the given directory
 lt() {
-    lines=${1:-2}
+    lines=${1:-1}
     shift
     ll -t "$@" | head -n $((1+lines))
 }
+
+# List ttyUSB devices
+alias ltty='ll /dev/ttyUSB*'
+# List Quectel devices
+alias lquec='lsusb | grep "Quectel\|Qualcomm"'
 
 # Life in color
 alias ls='ls --color=auto'
@@ -29,8 +34,21 @@ alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 alias diff='diff -u --color'
 
+# Python
+alias p='poetry'
+
 # Rust
 alias x='cargo xtask'
+
+# Bitbake
+alias bb='bitbake'
+alias bl='bitbake-layers'
+
+be() {
+    local file="$1.log"
+    bitbake -e "$1" > "$file"
+    echo "$file"
+}
 
 # Kitty
 alias icat='kitty +kitten icat --align=left'
@@ -39,7 +57,9 @@ alias kssh='kitty +kitten ssh'
 
 # Explore archives
 alias treezip='unzip -l'
-alias treetar='tar tf'
+alias treetar='tar tvf'
+alias tree7z='7za l'
+alias treegz='gzip -l'
 
 # fzf magic to fuzzy find a command in the history
 alias fzfstory='history | cut --delimiter=" " --field=1,2,3 --complement | sort --unique | fzf --exact | xclip -sel clip'

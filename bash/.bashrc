@@ -95,7 +95,7 @@ fi
 export PROMPT_DIRTRIM=3
 # show repo state : uncommitted changes, untracked files, etc
 export GIT_PS1_SHOWDIRTYSTATE=1
-# custom bash prompt : see https://github.com/git/git/blob/master/contrib/completion/git-prompt.sh
+# custom bash prompt : see <https://github.com/git/git/blob/master/contrib/completion/git-prompt.sh>
 # shellcheck source=/dev/null
 . "$HOME/.git-prompt.sh"
 PROMPT_COMMAND='PS1_CMD1=$(__git_ps1 " (%s)")'
@@ -107,4 +107,13 @@ complete -C "$(which aws_completer)" aws
 # direnv
 eval "$(direnv hook bash)"
 
+# yocto
+
+# see <https://bootlin.com/blog/yocto-sharing-the-sstate-cache-and-download-directories>
+export BB_ENV_PASSTHROUGH_ADDITIONS="DL_DIR SSTATE_DIR"
+export DL_DIR="$HOME/data/bitbake.downloads"
+export SSTATE_DIR="$HOME/data/bitbake.sstate"
+
 # misc
+# xterm-kitty would be better but breaks bitbake -c menuconfig
+export TERM=xterm-color
