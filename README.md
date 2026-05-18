@@ -23,18 +23,10 @@ git submodule update --init --recursive
 
 > pynvim can also be installed using pip.
 
-## Install
+## Deploy
 
 ```bash
-mv ~/.bashrc ~/.bashrc.bak
-mv ~/.gitignore ~/.gitignore.bak
-
-stow bash bash-completion bin fonts ghostty git kitty nvim rmtrash
-fc-cache ~/.local/share/fonts/
-```
-
-## Uninstall
-
-```bash
-stow -D bash bash-completion bin fonts ghostty git kitty nvim rmtrash
+make install
+# To undo the deployment
+make uninstall
 ```
