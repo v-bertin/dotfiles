@@ -1,4 +1,5 @@
 -- Need to manually install the LSP : `cargo install dts-lsp`
+-- See <https://github.com/igor-prusov/dts-lsp>
 vim.api.nvim_create_autocmd('BufEnter', {
     pattern = { "*.dts", "*.dtsi" },
     callback = function(_)

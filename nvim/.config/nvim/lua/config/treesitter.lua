@@ -53,6 +53,8 @@ vim.treesitter.language.register('strictdoc', { "sdoc", "sgra" })
 vim.filetype.add({
     extension = {
         inc = 'bitbake',
+        network = 'systemd',
+        service = 'systemd',
         spec = 'python',
         vspec = 'yaml',
         sdoc = 'strictdoc',

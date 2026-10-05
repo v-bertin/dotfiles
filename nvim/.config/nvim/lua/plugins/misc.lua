@@ -42,7 +42,7 @@ return {
 	-- crc - coerce to camelCase
 	-- cru - coerce to UPPER_CASE
 	{ "tpope/vim-abolish" },
-    -- hex editor
+	-- hex editor
 	{ "RaafatTurki/hex.nvim" },
 	-- syntax highlighting for rust tracing logs
 	{
@@ -51,4 +51,6 @@ return {
 			require("log-highlight").setup({})
 		end,
 	},
+	-- Markdown presentation
+	{ "tjdevries/present.nvim" },
 }
