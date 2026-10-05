@@ -1,4 +1,4 @@
-packages = bash bash-completion bin fonts ghostty git kitty nvim rmtrash zed
+packages = bash bash-completion bin fonts ghostty git kitty nvim opencode rmtrash zed
 
 install:
 	stow $(packages)
