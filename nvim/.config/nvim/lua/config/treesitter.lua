@@ -14,6 +14,7 @@ require("nvim-treesitter.configs").setup({
         "proto",
         "python",
         "rust",
+        "strictdoc",
         "yaml",
     },
 
@@ -34,11 +35,28 @@ require("nvim-treesitter.configs").setup({
     modules = {},
 })
 
+-- Need to manually copy the queries to $HOME/.local/share/nvim/lazy/nvim-treesitter/queries/strictdoc/ ...
+-- See <https://github.com/nvim-treesitter/nvim-treesitter/tree/master#adding-parsers>
+local parsers = require("nvim-treesitter.parsers").get_parser_configs()
+parsers.strictdoc = {
+    install_info = {
+        url = "~/Projects/externals/tree-sitter-strictdoc",
+        files = { "src/parser.c" },
+
+        generate_requires_npm = false,
+        requires_generate_from_grammar = false,
+    },
+    filetype = { "sdoc", "sgra" },
+}
+vim.treesitter.language.register('strictdoc', { "sdoc", "sgra" })
+
 vim.filetype.add({
     extension = {
         inc = 'bitbake',
         spec = 'python',
         vspec = 'yaml',
+        sdoc = 'strictdoc',
+        sgra = 'strictdoc',
     },
     pattern = {
         [".*/%.github/workflows/.*%.ya?ml"] = "yaml.ghactions",
