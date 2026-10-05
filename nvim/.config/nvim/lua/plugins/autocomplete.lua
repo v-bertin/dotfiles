@@ -8,5 +8,7 @@ return {
         'hrsh7th/cmp-path',
         -- Add GitHub completion capabilities
         'petertriho/cmp-git',
+        -- Add SRC_URI path completion capabilities
+        'antznin/cmp-bitbake-path',
     },
 }

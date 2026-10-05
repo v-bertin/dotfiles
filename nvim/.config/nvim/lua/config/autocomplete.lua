@@ -26,6 +26,7 @@ cmp.setup({
         { name = 'crates' },
         { name = 'minuet' },
         { name = 'path' },
+        { name = 'bitbake_path' },
     }, {
         { name = 'buffer' },
     }),
