@@ -1,0 +1,26 @@
+// vim: set filetype=json5:
+//
+// Zed keymaps
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings, run `zed: open default keymap`
+// from the command palette (cmd-shift-p / ctrl-shift-p)
+[
+  {
+    "context": "Workspace",
+    "bindings": {
+      "space s f": "file_finder::Toggle", // Search File
+      "space s g": "pane::DeploySearch", // Search Glob
+    },
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "ctrl-enter": "workspace::NewTerminal",
+      "g r r": "git::Restore",
+      "g p p": "git::Diff",
+    },
+  },
+]
