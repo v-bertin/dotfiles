@@ -27,6 +27,7 @@ cmp.setup({
         { name = 'minuet' },
         { name = 'path' },
         { name = 'bitbake_path' },
+        { name = 'vimtex' },
     }, {
         { name = 'buffer' },
     }),

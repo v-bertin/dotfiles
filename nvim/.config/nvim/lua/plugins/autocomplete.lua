@@ -10,5 +10,7 @@ return {
         'petertriho/cmp-git',
         -- Add SRC_URI path completion capabilities
         'antznin/cmp-bitbake-path',
+        -- Add VimTex completion capabilities
+        'micangl/cmp-vimtex',
     },
 }
