@@ -62,7 +62,7 @@ fi
 
 # Setup env
 
-export PATH="$PATH:$HOME/.local/bin:/usr/local/bin"
+export PATH="$PATH:$HOME/.local/bin"
 
 # Rust
 # shellcheck source=/dev/null
@@ -76,7 +76,7 @@ export EDITOR=nvim
 set -o vi
 
 # fnm: manage node versions
-FNM_PATH="/home/victor/.local/share/fnm"
+FNM_PATH="$HOME/.local/share/fnm"
 if [ -d "$FNM_PATH" ]; then
   export PATH="$FNM_PATH:$PATH"
   eval "$(fnm env --use-on-cd --shell bash)"
@@ -113,6 +113,15 @@ eval "$(direnv hook bash)"
 export BB_ENV_PASSTHROUGH_ADDITIONS="DL_DIR SSTATE_DIR"
 export DL_DIR="$HOME/data/bitbake.downloads"
 export SSTATE_DIR="$HOME/data/bitbake.sstate"
+
+# opencode
+export PATH="$HOME/.opencode/bin:$PATH"
+
+# ST
+export PATH="$HOME/STMicroelectronics/STM32Cube/STM32CubeProgrammer/bin:$PATH"
+
+# nix
+export PATH="/nix/var/nix/profiles/default/bin:$PATH"
 
 # misc
 # xterm-kitty would be better but breaks bitbake -c menuconfig
