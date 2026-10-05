@@ -1,23 +1,31 @@
-#! /usr/bin/bash
+#!/usr/bin/bash
 
 set -e
+
+: "${KERNEL_SRC:?}"
 
 if [ "$1" = "help" ] || [ "$1" = "" ]; then
    echo "USAGE: ./custom-dtc input.dts"
    exit 0
 fi
 
-source=$1
-extension=${source##*.}
+source="$1"
+extension="${source##*.}"
 
-if [ "${extension}" != "dts" ]; then
-   echo "Invalid extension ${extension}"
+if [ "$extension" != "dts" ]; then
+   echo "Invalid extension $extension"
    exit 1
 fi
 
-name=${source%.*}
-tmp=${name}.preprocessed.dts
-blob=${name}.dtb
+name="${source%.*}"
+tmp="$name.preprocessed.dts"
+blob="$name.dtb"
 
-cpp -nostdinc -I ~/linux-arm64/include/ -undef -x assembler-with-cpp "${source}" "${tmp}"
-dtc -@ -I dts -O dtb -o "${blob}" "${tmp}"
+# TODO: add vendor option to specify vendor folder
+cpp -nostdinc \
+    -I "${KERNEL_SRC}/include" \
+    -I "${KERNEL_SRC}/arch/arm/boot/dts/st" \
+    -undef -x assembler-with-cpp "$source" "$tmp"
+dtc -@ -I dts -O dtb -o "$blob" "$tmp"
+
+echo "OK: $blob"

@@ -114,6 +114,9 @@ export BB_ENV_PASSTHROUGH_ADDITIONS="DL_DIR SSTATE_DIR"
 export DL_DIR="$HOME/data/bitbake.downloads"
 export SSTATE_DIR="$HOME/data/bitbake.sstate"
 
+# custom-dtc
+export KERNEL_SRC="$HOME/Projects/iot-nova-am/build/tmp/work-shared/stm32mp13-nova-am/kernel-source"
+
 # opencode
 export PATH="$HOME/.opencode/bin:$PATH"
 
@@ -126,3 +129,5 @@ export PATH="/nix/var/nix/profiles/default/bin:$PATH"
 # misc
 # xterm-kitty would be better but breaks bitbake -c menuconfig
 export TERM=xterm-color
+export AWS_PROFILE=oem-dev
+export OP_ACCOUNT="b-on.1password.com"
